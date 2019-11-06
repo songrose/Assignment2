@@ -32,20 +32,21 @@ public class BloodReadingAdapter extends ArrayAdapter<BloodReading> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-
         View listViewItem = inflater.inflate(R.layout.list_layout, null, true);
+        TextView tvUsername = listViewItem.findViewById(R.id.textViewUsername);
 
         TextView tvSystolic = listViewItem.findViewById(R.id.textViewSystolic);
         TextView tvDialostic = listViewItem.findViewById(R.id.textViewDialostic);
         TextView tvTime = listViewItem.findViewById(R.id.textViewTime);
         TextView tvCondition = listViewItem.findViewById(R.id.textViewCondition);
-
         BloodReading bloodReading = bloodReadingList.get(position);
+        tvUsername.setText(bloodReading.getUsername());
         tvSystolic.setText(String.valueOf(bloodReading.getSystolic()));
         tvDialostic.setText(String.valueOf(bloodReading.getDialostic()));
-
         tvTime.setText(bloodReading.getDate_time());
         tvCondition.setText(bloodReading.getCondition());
+
+
 
         return listViewItem;
     }

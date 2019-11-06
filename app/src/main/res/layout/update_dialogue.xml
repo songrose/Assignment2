@@ -1,44 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/username"
+        android:hint="@string/hintUsername"
         android:inputType="text" />
-
     <EditText
         android:id="@+id/editTextSystolic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/hintSystolic"
+        android:hint="@string/sytolic"
         android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextDialostic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hintDialostic"
+        android:ems="10"
+        android:hint="@string/dialostic"
         android:inputType="number" />
 
 
-
     <Button
-        android:id="@+id/buttonAddBloodreading"
+        android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btnAddBloodReading" />
-    <ListView
-        android:id="@+id/lvBloodReading"
+        android:text="@string/btnUpdate" />
+    <Button
+        android:id="@+id/btnDelete"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:text="@string/btnDelete" />
 
 </LinearLayout>

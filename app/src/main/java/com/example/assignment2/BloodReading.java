@@ -7,12 +7,13 @@ public class BloodReading {
     private int systolic;
     private int dialostic;
     private String condition;
-
+    private String username;
 
     // Getter Methods
     public BloodReading() {}
 
-    public BloodReading(String id, int sys, int dia, String time){
+    public BloodReading(String username, String id, int sys, int dia, String time){
+        setUsername(username);
         setBloodReadingID(id);
         setSystolic(sys);
         setDialostic(dia);
@@ -20,7 +21,8 @@ public class BloodReading {
         setDate_time(time);
 
     }
-
+    public void setUsername(String s){this.username = s;};
+    public String getUsername(){return username;};
     public String getBloodReadingID() {
         return bloodReadingID;
     }

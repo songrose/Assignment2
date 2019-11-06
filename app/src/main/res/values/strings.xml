@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">Blood Test Reading - Rose Song, Bosco Kwan</string>
-
-    <string name="hintSystolic">Systolic</string>
-    <string name="hintDialostic">Dialostic</string>
+    <string name ="hintUsername"> Username</string>
+    <string name="hintSystolic">Systolic </string>
+    <string name="hintDialostic">Dialostic </string>
+    <string name="hintTime">Time: </string>
+    <string name="hintCondition">Condition: </string>
+    <string name="sytolic">Systolic:  </string>
+    <string name="dialostic">Dialostic:  </string>
+    <string name="username">Username: </string>
     <string name="btnAddBloodReading">Add Blood Reading</string>
     <string name="enterNewBloodReading">Enter New Blood Reading</string>
     <string name="btnUpdate">Update</string>
