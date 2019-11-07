@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Blood Test Reading - Rose Song, Bosco Kwan</string>
-    <string name ="hintUsername"> Username</string>
+    <string name="hintUsername"> Username</string>
     <string name="hintSystolic">Systolic </string>
     <string name="hintDialostic">Dialostic </string>
     <string name="hintTime">Time: </string>
@@ -19,5 +19,11 @@
     <string name="monthlyReadingSystolic" type="id">montlyReadingSystolic</string>
     <string name="monthlyReadingSiastolic" type="id">monthlyDialostic</string>
     <string name="monthly_readings">Monthly Readings</string>
+    <string name="enter_in_a_username">Enter in a username</string>
+    <string name="monthly_systolic">Monthly Systolic:</string>
+    <string name="monthly_dialostic">Monthly Dialostic:</string>
+    <string name="monthly_condition">Monthly Condition:</string>
+    <string name="monthly_view">Monthly View</string>
+    <string name="confirm">Confirm</string>
 
 </resources>

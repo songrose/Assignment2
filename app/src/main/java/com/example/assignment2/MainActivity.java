@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -33,16 +36,14 @@ public class MainActivity extends AppCompatActivity {
     EditText editTextSystolic;
     EditText editTextDialostic;
     Button buttonAddBloodReading;
+    Button monthlyBtn;
 
     DatabaseReference databaseBloodReading;
     ListView lvBloodReading;
     ArrayList<BloodReading> bloodReadingList;
     ArrayList<BloodReading> l;
     ArrayList<BloodReading> b;
-    TextView f;
-    TextView t;
-    TextView k;
-    TextView newMonthly;
+
 
 
 
@@ -53,10 +54,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         System.out.println( " Dfad" + Date.getDateAndTime());
 
-        f = findViewById(R.id.textSystolic);
-        t = findViewById(R.id.textDialostic);
-        k = findViewById(R.id.avgConditionText);
-        newMonthly = findViewById(R.id.monthlyDate);
         lvBloodReading = findViewById(R.id.lvBloodReading);
         bloodReadingList = new ArrayList<BloodReading>();
         l = new ArrayList<BloodReading>();
@@ -66,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
         editTextSystolic = findViewById(R.id.editTextSystolic);
         editTextDialostic = findViewById(R.id.editTextDialostic);
         buttonAddBloodReading = findViewById(R.id.buttonAddBloodreading);
+        monthlyBtn =  findViewById(R.id.buttonMonth);
+
+        monthlyBtn.setOnClickListener(new View.OnClickListener()  {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,MonthlyActivity.class);
+                i.putExtra("peoples",l);
+                startActivity(i);
+
+            }
+        } );
 
         buttonAddBloodReading.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
 
         BloodReading br = new BloodReading(usernameString, id, systolic, dialostic,  Date.getDateAndTime());
         l.add(br);
-        up();
 
         Task setValueTask = databaseBloodReading.child(id).setValue(br);
 
@@ -160,11 +167,6 @@ public class MainActivity extends AppCompatActivity {
 
                 BloodReadingAdapter adapter = new BloodReadingAdapter(MainActivity.this, bloodReadingList);
                 lvBloodReading.setAdapter(adapter);
-                if(l.size() > 0) {
-                    up();
-                }
-
-
             }
 
 
@@ -258,8 +260,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-                up();
-
 
 
                 alertDialog.dismiss();
@@ -279,16 +279,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void up() {
-        b.clear();
-        b = BloodReading.getMonthly(l);
-        newMonthly.setText(b.get(0).getDate_time());
-        f.setText(String.valueOf(b.get(0).getSystolic()));
 
-        t.setText(String.valueOf(b.get(0).getDialostic()));
-
-        k.setText(b.get(0).getCondition());
-    }
     private void deleteBloodReading(String id) {
         DatabaseReference dbRef = databaseBloodReading.child(id);
         Iterator<BloodReading> i = l.iterator();
@@ -299,7 +290,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        up();
 
 
         Task setRemoveTask = dbRef.removeValue();

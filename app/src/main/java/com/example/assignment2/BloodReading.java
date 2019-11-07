@@ -1,9 +1,10 @@
 package com.example.assignment2;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BloodReading {
+public class BloodReading implements Serializable {
     private String bloodReadingID;
     private String date_time;
     private int systolic;
