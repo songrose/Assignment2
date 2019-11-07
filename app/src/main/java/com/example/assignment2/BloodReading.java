@@ -1,5 +1,7 @@
 package com.example.assignment2;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BloodReading {
     private String bloodReadingID;
@@ -76,5 +78,40 @@ public class BloodReading {
     }
     public String getCondition(){
         return condition;
+    }
+
+    public static ArrayList<BloodReading> getMonthly(ArrayList<BloodReading> list) {
+        ArrayList<BloodReading> monthlyAvg = new ArrayList<>();
+        String firstDate;
+        String secondDate;
+        String userName;
+        String user;
+        int totalDialostic;
+        int totalSystolic;
+        int count;
+        for(int i = 0; i < list.size(); i++) {
+            firstDate = list.get(i).getDate_time().substring(0,7);
+            userName = list.get(i).getUsername();
+            count = 1;
+            totalDialostic = list.get(i).getDialostic();
+            totalSystolic = list.get(i).getSystolic();
+            for (int j = i + 1; j < list.size(); j++) {
+                secondDate = list.get(j).getDate_time().substring(0,7);
+                user = list.get(j).getUsername();
+                if (firstDate.equals(secondDate) && userName.equals(user)) {
+                    totalDialostic += list.get(j).getDialostic();
+                    totalSystolic += list.get(j).getSystolic();
+                    count++;
+
+                }
+            }
+
+            totalDialostic = totalDialostic / count;
+            totalSystolic = totalSystolic /count;
+
+            BloodReading b = new BloodReading(list.get(i).getUsername(), list.get(i).getBloodReadingID(),totalSystolic,totalDialostic, firstDate);
+            monthlyAvg.add(b);
+        }
+        return monthlyAvg;
     }
 }
