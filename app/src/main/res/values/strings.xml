@@ -25,5 +25,7 @@
     <string name="monthly_condition">Monthly Condition:</string>
     <string name="monthly_view">Monthly View</string>
     <string name="confirm">Confirm</string>
+    <string name="enter">enter</string>
+    <string name="back">Back</string>
 
 </resources>
