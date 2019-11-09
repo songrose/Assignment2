@@ -1,147 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MonthlyActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/userss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/monthyDate"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:layout_height="45dp" />
+
+    <TextView
+        android:id="@+id/textSystolic"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:layout_height="45dp" />
+
+    <TextView
+        android:id="@+id/textDialostic"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:layout_height="45dp" />
+
+    <TextView
+        android:id="@+id/averageCondition"
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:layout_height="45dp" />
 
 
-    <TableRow
-        android:id="@+id/tableRow2"
-        android:layout_width="403dp"
-        android:layout_height="51dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.003">
 
-        <EditText
-            android:id="@+id/userss"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:hint="@string/username"
-            android:inputType="textPersonName"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </TableRow>
+    <Button
+        android:id="@+id/buttonGet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm" />
 
-    <TableRow
-        android:id="@+id/tableRow3"
-        android:layout_width="400dp"
-        android:layout_height="51dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow2"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            android:id="@+id/monthyDate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back" />
 
 
-    </TableRow>
 
-    <TableRow
-        android:id="@+id/tableRow4"
-        android:layout_width="409dp"
-        android:layout_height="51dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow3"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            android:id="@+id/textSystolic"
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow5"
-        android:layout_width="409dp"
-        android:layout_height="51dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow4"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            android:id="@+id/textDialostic"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow6"
-        android:layout_width="409dp"
-        android:layout_height="51dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow5"
-        app:layout_constraintVertical_bias="0.0">
-
-
-        <TextView
-            android:id="@+id/averageCondition"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow7"
-        android:layout_width="407dp"
-        android:layout_height="49dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow6"
-        app:layout_constraintVertical_bias="0.0">
-
-        <Button
-            android:id="@+id/buttonGet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/enter" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="410dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableRow7"
-        app:layout_constraintVertical_bias="0.0">
-
-        <Button
-            android:id="@+id/backBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:text="@string/back" />
-    </TableRow>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -41,8 +42,19 @@ public class MonthlyActivity extends AppCompatActivity  {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                boolean f  = false;
                 String userName = user.getText().toString();
-                up(userName);
+                for(BloodReading b : l) {
+                    if(b.getUsername().equalsIgnoreCase(userName)){
+                        f =true;
+
+                    }
+                }
+                if(f) {
+                    up(userName);
+                } else {
+                    Toast.makeText(getApplicationContext(),"Please enter a valid username",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
