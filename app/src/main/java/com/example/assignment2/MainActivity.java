@@ -56,8 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         lvBloodReading = findViewById(R.id.lvBloodReading);
         bloodReadingList = new ArrayList<BloodReading>();
-        l = new ArrayList<BloodReading>();
-        b = new ArrayList<>();
+
         databaseBloodReading = FirebaseDatabase.getInstance().getReference("BloodReading");
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextSystolic = findViewById(R.id.editTextSystolic);
@@ -152,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        l = new ArrayList<BloodReading>();
+        b = new ArrayList<>();
         databaseBloodReading.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
