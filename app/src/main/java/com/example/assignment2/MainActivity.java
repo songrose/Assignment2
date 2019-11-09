@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(MainActivity.this,MonthlyActivity.class);
                 i.putExtra("peoples",l);
                 startActivity(i);
-
             }
         } );
 
@@ -254,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
 
                 updateStudent(usernameString, id, systolic2, dialostic2, date);
                 for(BloodReading a: l) {
-                    if(a.getBloodReadingID().equals(id)) {
+                    if(a.getBloodReadingID().equalsIgnoreCase(id)) {
                         a.setSystolic(systolic2);
                         a.setDialostic(dialostic2);
                     }
@@ -285,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
         Iterator<BloodReading> i = l.iterator();
         while(i.hasNext()){
             BloodReading b = i.next();
-            if(b.getBloodReadingID().equals(id)){
+            if(b.getBloodReadingID().equalsIgnoreCase(id)){
                 i.remove();
             }
         }

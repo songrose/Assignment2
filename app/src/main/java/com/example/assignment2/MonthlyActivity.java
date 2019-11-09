@@ -24,6 +24,12 @@ public class MonthlyActivity extends AppCompatActivity  {
     Button backBtn;
 
     @Override
+    protected void onStart(){
+        super.onStart();
+        l = (ArrayList<BloodReading>)getIntent().getSerializableExtra("peoples");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monthly);
@@ -37,7 +43,6 @@ public class MonthlyActivity extends AppCompatActivity  {
         t = findViewById(R.id.textDialostic);
         k = findViewById(R.id.averageCondition);
 
-        l = (ArrayList<BloodReading>)getIntent().getSerializableExtra("peoples");
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +67,7 @@ public class MonthlyActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                MonthlyActivity.super.onBackPressed();
+               finish();
             }
         });
 
